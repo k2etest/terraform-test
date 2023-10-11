@@ -1,0 +1,44 @@
+name: Initialize GitHub repository with protected branches
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo_name:
+        description: "Enter the name of a repository you want to create"
+        required: true
+        
+env:
+  TF_VAR_gh_token: ${{ secrets.ACCESS_TOKEN }}
+  TF_VAR_repo_name: $INPUT_REPO-NAME
+
+defaults:
+  run:
+    working_directory: git-init-repo
+
+jobs:
+  Terraform-Script:
+    runs-on: ubuntu-latest
+    name: Terraform Repo Initalization Script
+
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v4
+      
+      - name: Installing Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Initializing Terraform
+        id: init
+        run: terraform init
+
+      - name: Validating Configuration
+        id: validate
+        run: terraform validate -no-color
+
+      - name: Staging Terraform Changes
+        id: plan
+        run: terraform plan -no-color
+
+      - name: Creating Repo via Terraform
+        id: apply
+        run: terraform apply -auto-approve
