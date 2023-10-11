@@ -3,13 +3,13 @@ name: Initialize GitHub repository with protected branches
 on:
   workflow_dispatch:
     inputs:
-      repo_name:
+      repoName:
         description: "Enter the name of a repository you want to create"
         required: true
         
 env:
   TF_VAR_gh_token: ${{ secrets.ACCESS_TOKEN }}
-  TF_VAR_repo_name: $INPUT_REPO-NAME
+  TF_VAR_repo_name: ${{ inputs.repoName }}
 
 defaults:
   run:
@@ -34,6 +34,10 @@ jobs:
       - name: Validating Configuration
         id: validate
         run: terraform validate -no-color
+      
+      - name: Inputs Test
+        id: input_test
+        run: echo "Repo Name ${{ inputs.repoName }}"
 
       - name: Staging Terraform Changes
         id: plan
