@@ -13,7 +13,7 @@ env:
 
 defaults:
   run:
-    working_directory: git-init-repo
+    working-directory: git-init-repo
 
 jobs:
   Terraform-Script:
