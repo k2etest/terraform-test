@@ -34,10 +34,6 @@ jobs:
       - name: Validating Configuration
         id: validate
         run: terraform validate -no-color
-      
-      - name: Inputs Test
-        id: input_test
-        run: echo "Repo Name ${{ inputs.repoName }}"
 
       - name: Staging Terraform Changes
         id: plan
@@ -46,3 +42,5 @@ jobs:
       - name: Creating Repo via Terraform
         id: apply
         run: terraform apply -auto-approve
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
