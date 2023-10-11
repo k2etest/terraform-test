@@ -41,6 +41,6 @@ jobs:
 
       - name: Creating Repo via Terraform
         id: apply
-        run: terraform apply -auto-approve
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+        run: terraform apply -auto-approve
