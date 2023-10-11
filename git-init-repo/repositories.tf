@@ -35,7 +35,7 @@ resource "github_branch_protection" "terraform-repo" {
       require_last_push_approval = true // Most recent pusher cannot approve most recent push
     }
 
-    push_restrictions = [data.github_user.kim.node_id]
+    # push_restrictions = [data.github_user.kim.node_id]
 
     allows_force_pushes = false
 }
