@@ -10,6 +10,7 @@ on:
 env:
   TF_VAR_gh_token: ${{ secrets.ACCESS_TOKEN }}
   TF_VAR_repo_name: ${{ inputs.repoName }}
+  TF_HTTP_HEADER_AUTHORIZATION: "Bearer ${{ secrets.GITHUB_TOKEN }}"
 
 defaults:
   run:
@@ -42,5 +43,3 @@ jobs:
       - name: Creating Repo via Terraform
         id: apply
         run: terraform apply -auto-approve
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
