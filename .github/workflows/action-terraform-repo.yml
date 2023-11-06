@@ -42,5 +42,5 @@ jobs:
       - name: Creating Repo via Terraform
         id: apply
         env:
-          TF_VAR_gh_token: ${{ secrets.ACCESS_TOKEN }}
+          TF_VAR_gh_token: ${{ secrets.GITHUB_TOKEN }}
         run: terraform apply -auto-approve
