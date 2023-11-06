@@ -17,6 +17,7 @@ defaults:
 
 jobs:
   Terraform-Script:
+    permissions: write-all
     runs-on: ubuntu-latest
     name: Terraform Repo Initalization Script
 
