@@ -10,4 +10,5 @@ terraform {
 provider "github" {
     owner = "k2etest"
     token = var.gh_token
+    base_url="https://api.github.com/"
 }
