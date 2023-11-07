@@ -6,10 +6,15 @@ on:
       repoName:
         description: "Enter the name of a repository you want to create"
         required: true
+      repoDesc:
+        description: "Enter a description for the repository"
+        required: false
+        default: "Repository Created with Terraform"
         
 env:
   TF_VAR_gh_token: ${{ secrets.ACCESS_TOKEN }}
   TF_VAR_repo_name: ${{ inputs.repoName }}
+  TF_VAR_repo_description: ${{ inputs.repoDesc }}
 
 defaults:
   run:

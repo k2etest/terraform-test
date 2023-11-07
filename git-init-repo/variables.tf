@@ -5,4 +5,10 @@ variable "gh_token" {
 
 variable "repo_name" {
     description = "Name for new repository"
+    type = string
+}
+
+variable "repo_description" {
+    description = "Description for New Repository"
+    type = string
 }
