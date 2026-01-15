@@ -1,0 +1,16 @@
+{
+    "users": {
+        "smeetChheda": {
+            "real_name": "Smeet Chheda",
+            "role": "admin"
+        },
+        "k2eboss": {
+            "real_name": "K2E Boss",
+            "role": "admin"
+        },
+        "k2esupport": {
+            "real_name": "K2E Support",
+            "role": "member"
+        }
+    }
+}
